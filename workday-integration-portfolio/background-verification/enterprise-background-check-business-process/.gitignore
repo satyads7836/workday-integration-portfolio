@@ -1,0 +1,42 @@
+# Operating System
+
+.DS_Store
+Thumbs.db
+
+# IDE
+
+.vscode/
+.idea/
+
+# Logs
+
+*.log
+
+# Temporary files
+
+*.tmp
+*.bak
+
+# Workday exports
+
+*.zip
+*.csv
+*.xlsx
+
+# Sensitive files
+
+credentials.json
+config.json
+
+# Generated files
+
+*.cache
+
+# Screenshots
+
+screenshots/raw/
+
+# Local documentation
+
+notes/
+drafts/

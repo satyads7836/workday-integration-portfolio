@@ -1,0 +1,40 @@
+{
+  "_notice": "Illustrative response using synthetic data. This is not an official Workday API response.",
+  "correlationId": "SYN-CORR-RWP-0001",
+  "skillId": "retrieve-worker-profile",
+  "executionMode": "delegate",
+  "requestContext": {
+    "actorCategory": "authorized-hr-user",
+    "targetWorkerId": "SYN-W-1002",
+    "businessPurpose": "verify-current-profile",
+    "requestedFields": [
+      "businessTitle",
+      "supervisoryOrganization",
+      "workerType",
+      "location",
+      "workerStatus"
+    ]
+  },
+  "authorization": {
+    "skillAccess": "allowed",
+    "targetWorkerAccess": "allowed",
+    "fieldAccess": "allowed-with-minimization"
+  },
+  "result": {
+    "workerId": "SYN-W-1002",
+    "businessTitle": "Integration Consultant",
+    "supervisoryOrganization": "Enterprise Applications",
+    "workerType": "Employee",
+    "location": "Bengaluru",
+    "workerStatus": "Active"
+  },
+  "excludedFieldCategories": [
+    "government-identifiers",
+    "banking",
+    "compensation",
+    "medical",
+    "personal-contact"
+  ],
+  "status": "success",
+  "auditRecordId": "SYN-AUD-RWP-0001"
+}

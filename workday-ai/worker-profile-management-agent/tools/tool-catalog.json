@@ -1,0 +1,142 @@
+{
+  "_notice": "Illustrative portfolio catalog. Tool and resource names are conceptual and must not be treated as official Workday API definitions.",
+  "version": "0.1.0",
+  "tools": [
+    {
+      "id": "internal-authorization-check",
+      "displayName": "Internal Authorization Check",
+      "category": "security",
+      "executionModes": [
+        "delegate"
+      ],
+      "operation": "evaluate",
+      "mutability": "read-only",
+      "purpose": "Evaluate Skill availability, requesting-user context, target-worker scope, and underlying permissions.",
+      "securityControls": [
+        "deny-by-default",
+        "user-permission-intersection",
+        "worker-population-restriction",
+        "audit-decision"
+      ]
+    },
+    {
+      "id": "get-worker-profile",
+      "displayName": "Get Worker Profile",
+      "category": "worker-data",
+      "executionModes": [
+        "delegate"
+      ],
+      "operation": "read",
+      "mutability": "read-only",
+      "purpose": "Retrieve only the approved worker-profile fields permitted for the requesting user.",
+      "securityControls": [
+        "domain-security",
+        "field-minimization",
+        "target-worker-authorization"
+      ]
+    },
+    {
+      "id": "validate-business-title",
+      "displayName": "Validate Business Title",
+      "category": "validation",
+      "executionModes": [
+        "delegate"
+      ],
+      "operation": "validate",
+      "mutability": "read-only",
+      "purpose": "Validate the proposed title, effective date, current value, business reason, and duplicate-request status.",
+      "securityControls": [
+        "input-validation",
+        "current-value-check",
+        "duplicate-request-prevention"
+      ]
+    },
+    {
+      "id": "request-business-title-change",
+      "displayName": "Request Business Title Change",
+      "category": "worker-update",
+      "executionModes": [
+        "delegate"
+      ],
+      "operation": "submit",
+      "mutability": "write-request",
+      "purpose": "Submit an approved business-title change request without bypassing configured approval routing.",
+      "securityControls": [
+        "domain-security",
+        "business-process-security",
+        "user-confirmation",
+        "approval-routing",
+        "separation-of-duties"
+      ]
+    },
+    {
+      "id": "read-worker-profile-scope",
+      "displayName": "Read Worker Profile Scope",
+      "category": "worker-data",
+      "executionModes": [
+        "ambient"
+      ],
+      "operation": "read",
+      "mutability": "read-only",
+      "purpose": "Read the approved worker population and minimum fields required for data-quality evaluation.",
+      "securityControls": [
+        "ambient-agent-security-group",
+        "approved-population",
+        "field-minimization",
+        "least-privilege"
+      ]
+    },
+    {
+      "id": "evaluate-profile-data-quality",
+      "displayName": "Evaluate Profile Data Quality",
+      "category": "validation",
+      "executionModes": [
+        "ambient"
+      ],
+      "operation": "evaluate",
+      "mutability": "read-only",
+      "purpose": "Evaluate synthetic worker profiles against the approved data-quality rule set.",
+      "securityControls": [
+        "approved-rule-version",
+        "no-worker-update",
+        "threshold-control"
+      ]
+    },
+    {
+      "id": "publish-exception-report",
+      "displayName": "Publish Exception Report",
+      "category": "reporting",
+      "executionModes": [
+        "ambient"
+      ],
+      "operation": "publish",
+      "mutability": "report-only",
+      "purpose": "Publish a minimized exception report to authorized recipients.",
+      "securityControls": [
+        "recipient-authorization",
+        "data-minimization",
+        "restricted-distribution",
+        "retention-policy"
+      ]
+    },
+    {
+      "id": "write-audit-record",
+      "displayName": "Write Audit Record",
+      "category": "audit",
+      "executionModes": [
+        "delegate",
+        "ambient"
+      ],
+      "operation": "record",
+      "mutability": "append-only",
+      "purpose": "Record request, authorization, execution, outcome, and error metadata without storing unnecessary worker data.",
+      "securityControls": [
+        "append-only",
+        "correlation-id",
+        "timestamp",
+        "data-minimization",
+        "retention-policy"
+      ]
+    }
+  ]
+}

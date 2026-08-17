@@ -26,12 +26,12 @@ An authorized implementation team must validate the available Workday REST, SOAP
 
 ```text
 User request
-&#x20; -> Agent Interaction Policy
-&#x20; -> Internal Authorization Check
-&#x20; -> Permitted Worker Profile Resource
-&#x20; -> Field Minimization
-&#x20; -> Response
-&#x20; -> Audit Record
+  -> Agent Interaction Policy
+  -> Internal Authorization Check
+  -> Permitted Worker Profile Resource
+  -> Field Minimization
+  -> Response
+  -> Audit Record
 ```
 
 Required validation:
@@ -46,14 +46,14 @@ Required validation:
 
 ```text
 User request
-&#x20; -> Agent Interaction Policy
-&#x20; -> Internal Authorization Check
-&#x20; -> Current-Value Validation
-&#x20; -> Business-Title Validation
-&#x20; -> User Confirmation
-&#x20; -> Applicable Business Process
-&#x20; -> Approval Routing
-&#x20; -> Audit Record
+  -> Agent Interaction Policy
+  -> Internal Authorization Check
+  -> Current-Value Validation
+  -> Business-Title Validation
+  -> User Confirmation
+  -> Applicable Business Process
+  -> Approval Routing
+  -> Audit Record
 ```
 
 Required validation:
@@ -72,13 +72,13 @@ Required validation:
 
 ```text
 Approved schedule or event
-&#x20; -> Ambient Agent System User
-&#x20; -> Ambient Agent Security Group
-&#x20; -> Read-Only Worker Profile Source
-&#x20; -> Data-Quality Rules
-&#x20; -> Minimized Exception Report
-&#x20; -> Authorized Recipients
-&#x20; -> Audit and Run Metrics
+  -> Ambient Agent System User
+  -> Ambient Agent Security Group
+  -> Read-Only Worker Profile Source
+  -> Data-Quality Rules
+  -> Minimized Exception Report
+  -> Authorized Recipients
+  -> Audit and Run Metrics
 ```
 
 Required validation:

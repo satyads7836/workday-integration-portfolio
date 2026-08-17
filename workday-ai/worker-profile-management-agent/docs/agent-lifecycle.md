@@ -4,18 +4,18 @@
 
 ```mermaid
 flowchart LR
-&#x20;   A\[Idea] --> B\[Define]
-&#x20;   B --> C\[Review]
-&#x20;   C --> D\[Test]
-&#x20;   D --> E\[Approve]
-&#x20;   E --> F\[Activate]
-&#x20;   F --> G\[Monitor]
-&#x20;   G --> H{Change Needed?}
-&#x20;   H -- Yes --> B
-&#x20;   H -- No --> I{Retire?}
-&#x20;   I -- No --> G
-&#x20;   I -- Yes --> J\[Deactivate]
-&#x20;   J --> K\[Archive Evidence]
+    A[Idea] --> B[Define]
+    B --> C[Review]
+    C --> D[Test]
+    D --> E[Approve]
+    E --> F[Activate]
+    F --> G[Monitor]
+    G --> H{Change Needed?}
+    H -- Yes --> B
+    H -- No --> I{Retire?}
+    I -- No --> G
+    I -- Yes --> J[Deactivate]
+    J --> K[Archive Evidence]
 ```
 
 ## 1. Idea

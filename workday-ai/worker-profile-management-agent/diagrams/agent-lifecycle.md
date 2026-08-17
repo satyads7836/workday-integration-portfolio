@@ -2,21 +2,21 @@
 
 ```mermaid
 stateDiagram-v2
-&#x20;   \[\*] --> Idea
-&#x20;   Idea --> Define: Business purpose accepted
-&#x20;   Define --> Review: Design artifacts complete
-&#x20;   Review --> Define: Changes required
-&#x20;   Review --> Test: Reviews accepted
-&#x20;   Test --> Define: Defect or control gap
-&#x20;   Test --> Approve: Exit criteria satisfied
-&#x20;   Approve --> Test: Evidence rejected
-&#x20;   Approve --> Activate: Required approvals recorded
-&#x20;   Activate --> Monitor: Smoke test successful
-&#x20;   Activate --> Deactivate: Activation failure
-&#x20;   Monitor --> Define: Controlled change
-&#x20;   Monitor --> Deactivate: Retirement or unacceptable risk
-&#x20;   Deactivate --> Archive: Execution disabled
-&#x20;   Archive --> \[\*]
+    [\*] --> Idea
+    Idea --> Define: Business purpose accepted
+    Define --> Review: Design artifacts complete
+    Review --> Define: Changes required
+    Review --> Test: Reviews accepted
+    Test --> Define: Defect or control gap
+    Test --> Approve: Exit criteria satisfied
+    Approve --> Test: Evidence rejected
+    Approve --> Activate: Required approvals recorded
+    Activate --> Monitor: Smoke test successful
+    Activate --> Deactivate: Activation failure
+    Monitor --> Define: Controlled change
+    Monitor --> Deactivate: Retirement or unacceptable risk
+    Deactivate --> Archive: Execution disabled
+    Archive --> [\*]
 ```
 
 ## Lifecycle Evidence

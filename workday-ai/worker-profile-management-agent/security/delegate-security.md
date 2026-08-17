@@ -13,14 +13,14 @@ This project uses Delegate mode for:
 
 ```text
 Authenticated User
-&#x20; -> Agent Interaction Policy
-&#x20; -> Skill Availability
-&#x20; -> User and Target-Worker Authorization
-&#x20; -> Tool Security
-&#x20; -> Domain or Business-Process Security
-&#x20; -> Runtime Validation
-&#x20; -> Controlled Result
-&#x20; -> Audit Record
+  -> Agent Interaction Policy
+  -> Skill Availability
+  -> User and Target-Worker Authorization
+  -> Tool Security
+  -> Domain or Business-Process Security
+  -> Runtime Validation
+  -> Controlled Result
+  -> Audit Record
 ```
 
 The agent must not provide permissions that the user does not already have for the underlying operation.
@@ -118,12 +118,12 @@ Record:
 
 ## Review Checklist
 
-- \[ ] Skill population approved
-- \[ ] Target-worker restrictions validated
-- \[ ] Required domains identified
-- \[ ] Required business-process policies identified
-- \[ ] Confirmation tested
-- \[ ] Approval routing tested
-- \[ ] Negative security tests passed
-- \[ ] Audit records verified
-- \[ ] Sensitive-data exposure tests passed
+- [ ] Skill population approved
+- [ ] Target-worker restrictions validated
+- [ ] Required domains identified
+- [ ] Required business-process policies identified
+- [ ] Confirmation tested
+- [ ] Approval routing tested
+- [ ] Negative security tests passed
+- [ ] Audit records verified
+- [ ] Sensitive-data exposure tests passed

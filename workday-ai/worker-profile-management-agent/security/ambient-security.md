@@ -12,13 +12,13 @@ This project uses Ambient mode only for:
 
 ```text
 Approved Schedule or Event
-&#x20; -> Agent
-&#x20; -> Ambient Agent System User
-&#x20; -> Ambient Agent Security Group
-&#x20; -> Read-Only Worker Scope
-&#x20; -> Data-Quality Rules
-&#x20; -> Restricted Exception Report
-&#x20; -> Audit and Monitoring
+  -> Agent
+  -> Ambient Agent System User
+  -> Ambient Agent Security Group
+  -> Read-Only Worker Scope
+  -> Data-Quality Rules
+  -> Restricted Exception Report
+  -> Audit and Monitoring
 ```
 
 The ASU and security-group names in this project are illustrative. Actual creation and activation behavior must be validated in an authorized Workday tenant.
@@ -121,14 +121,14 @@ Track:
 
 ## Security Review Checklist
 
-- \[ ] Ambient Skill scope approved
-- \[ ] Ambient identity documented
-- \[ ] Security group is least privilege
-- \[ ] Worker population is restricted
-- \[ ] Field scope is minimized
-- \[ ] No worker-update permission exists
-- \[ ] Recipients are authorized
-- \[ ] Overlap prevention tested
-- \[ ] Failure and retry behavior tested
-- \[ ] Audit and monitoring verified
-- \[ ] Emergency disablement tested
+- [ ] Ambient Skill scope approved
+- [ ] Ambient identity documented
+- [ ] Security group is least privilege
+- [ ] Worker population is restricted
+- [ ] Field scope is minimized
+- [ ] No worker-update permission exists
+- [ ] Recipients are authorized
+- [ ] Overlap prevention tested
+- [ ] Failure and retry behavior tested
+- [ ] Audit and monitoring verified
+- [ ] Emergency disablement tested

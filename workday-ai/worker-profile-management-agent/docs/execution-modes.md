@@ -22,22 +22,22 @@ The project uses Delegate mode when:
 
 ```mermaid
 flowchart TD
-&#x20;   A\[User Request] --> B{Skill Available to User?}
-&#x20;   B -- No --> X\[Deny and Audit]
-&#x20;   B -- Yes --> C{Target Worker Authorized?}
-&#x20;   C -- No --> X
-&#x20;   C -- Yes --> D{Tool and Resource Permissions Valid?}
-&#x20;   D -- No --> X
-&#x20;   D -- Yes --> E{Input and Purpose Valid?}
-&#x20;   E -- No --> Y\[Return Validation Error and Audit]
-&#x20;   E -- Yes --> F{Write Request?}
-&#x20;   F -- No --> G\[Return Minimized Read Result]
-&#x20;   F -- Yes --> H\[Present Confirmation]
-&#x20;   H --> I{User Confirms?}
-&#x20;   I -- No --> Z\[Cancel and Audit]
-&#x20;   I -- Yes --> J\[Submit Through Approval Process]
-&#x20;   G --> K\[Write Audit Record]
-&#x20;   J --> K
+    A[User Request] --> B{Skill Available to User?}
+    B -- No --> X[Deny and Audit]
+    B -- Yes --> C{Target Worker Authorized?}
+    C -- No --> X
+    C -- Yes --> D{Tool and Resource Permissions Valid?}
+    D -- No --> X
+    D -- Yes --> E{Input and Purpose Valid?}
+    E -- No --> Y[Return Validation Error and Audit]
+    E -- Yes --> F{Write Request?}
+    F -- No --> G[Return Minimized Read Result]
+    F -- Yes --> H[Present Confirmation]
+    H --> I{User Confirms?}
+    I -- No --> Z[Cancel and Audit]
+    I -- Yes --> J[Submit Through Approval Process]
+    G --> K[Write Audit Record]
+    J --> K
 ```
 
 ## Ambient Mode
@@ -50,21 +50,21 @@ The project uses Ambient mode to identify worker-profile data-quality exceptions
 
 ```mermaid
 flowchart TD
-&#x20;   A\[Approved Schedule or Event] --> B{Skill Active?}
-&#x20;   B -- No --> X\[Stop and Audit]
-&#x20;   B -- Yes --> C{Ambient Identity Enabled?}
-&#x20;   C -- No --> X
-&#x20;   C -- Yes --> D{Security Scope Matches Approval?}
-&#x20;   D -- No --> Y\[Stop and Alert Security]
-&#x20;   D -- Yes --> E{Rule Version Available?}
-&#x20;   E -- No --> Z\[Stop and Alert Support]
-&#x20;   E -- Yes --> F\[Read Approved Population]
-&#x20;   F --> G{Threshold Exceeded?}
-&#x20;   G -- Yes --> W\[Stop Without Advancing Watermark]
-&#x20;   G -- No --> H\[Evaluate Rules]
-&#x20;   H --> I\[Publish Minimized Exceptions]
-&#x20;   I --> J\[Record Metrics and Audit]
-&#x20;   J --> K\[Advance Watermark After Success]
+    A[Approved Schedule or Event] --> B{Skill Active?}
+    B -- No --> X[Stop and Audit]
+    B -- Yes --> C{Ambient Identity Enabled?}
+    C -- No --> X
+    C -- Yes --> D{Security Scope Matches Approval?}
+    D -- No --> Y[Stop and Alert Security]
+    D -- Yes --> E{Rule Version Available?}
+    E -- No --> Z[Stop and Alert Support]
+    E -- Yes --> F[Read Approved Population]
+    F --> G{Threshold Exceeded?}
+    G -- Yes --> W[Stop Without Advancing Watermark]
+    G -- No --> H[Evaluate Rules]
+    H --> I[Publish Minimized Exceptions]
+    I --> J[Record Metrics and Audit]
+    J --> K[Advance Watermark After Success]
 ```
 
 ## Comparison

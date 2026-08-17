@@ -20,20 +20,20 @@ The design separates:
 
 ```mermaid
 flowchart TD
-&#x20;   U\[Authorized User] --> A\[Worker Profile Management Agent]
-&#x20;   T\[Approved Schedule or Event] --> A
-&#x20;   A --> AD\[Illustrative Agent Definition]
-&#x20;   AD --> S1\[Retrieve Worker Profile]
-&#x20;   AD --> S2\[Update Worker Business Title]
-&#x20;   AD --> S3\[Monitor Profile Data Quality]
-&#x20;   S1 --> C1\[Delegate Security Context]
-&#x20;   S2 --> C1
-&#x20;   S3 --> C2\[Ambient Security Context]
-&#x20;   C1 --> TL\[Illustrative Tools]
-&#x20;   C2 --> TL
-&#x20;   TL --> WR\[Validated Workday Resources]
-&#x20;   WR --> BP\[Read, Business Process, or Reporting Action]
-&#x20;   BP --> AU\[Audit and Monitoring]
+    U[Authorized User] --> A[Worker Profile Management Agent]
+    T[Approved Schedule or Event] --> A
+    A --> AD[Illustrative Agent Definition]
+    AD --> S1[Retrieve Worker Profile]
+    AD --> S2[Update Worker Business Title]
+    AD --> S3[Monitor Profile Data Quality]
+    S1 --> C1[Delegate Security Context]
+    S2 --> C1
+    S3 --> C2[Ambient Security Context]
+    C1 --> TL[Illustrative Tools]
+    C2 --> TL
+    TL --> WR[Validated Workday Resources]
+    WR --> BP[Read, Business Process, or Reporting Action]
+    BP --> AU[Audit and Monitoring]
 ```
 
 ## Components
@@ -54,45 +54,45 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-&#x20;   actor User
-&#x20;   participant Agent
-&#x20;   participant Policy as Interaction Policy
-&#x20;   participant Security
-&#x20;   participant Tool
-&#x20;   participant Resource as Workday Resource
-&#x20;   participant Audit
-&#x20;   User->>Agent: Request Skill
-&#x20;   Agent->>Policy: Check Skill availability
-&#x20;   Policy-->>Agent: Allow or deny
-&#x20;   Agent->>Security: Evaluate user and worker scope
-&#x20;   Security-->>Agent: Authorized or denied
-&#x20;   Agent->>Tool: Invoke approved operation
-&#x20;   Tool->>Resource: Read or submit controlled request
-&#x20;   Resource-->>Tool: Result
-&#x20;   Tool-->>Agent: Minimized result
-&#x20;   Agent->>Audit: Record decision and outcome
-&#x20;   Agent-->>User: Controlled response
+    actor User
+    participant Agent
+    participant Policy as Interaction Policy
+    participant Security
+    participant Tool
+    participant Resource as Workday Resource
+    participant Audit
+    User->>Agent: Request Skill
+    Agent->>Policy: Check Skill availability
+    Policy-->>Agent: Allow or deny
+    Agent->>Security: Evaluate user and worker scope
+    Security-->>Agent: Authorized or denied
+    Agent->>Tool: Invoke approved operation
+    Tool->>Resource: Read or submit controlled request
+    Resource-->>Tool: Result
+    Tool-->>Agent: Minimized result
+    Agent->>Audit: Record decision and outcome
+    Agent-->>User: Controlled response
 ```
 
 ## Ambient Architecture
 
 ```mermaid
 sequenceDiagram
-&#x20;   participant Trigger as Schedule or Event
-&#x20;   participant Agent
-&#x20;   participant ASU as Ambient ASU
-&#x20;   participant Security as Ambient Security Group
-&#x20;   participant Rules as Data-Quality Rules
-&#x20;   participant Report
-&#x20;   participant Audit
-&#x20;   Trigger->>Agent: Start approved run
-&#x20;   Agent->>ASU: Establish Ambient identity
-&#x20;   ASU->>Security: Evaluate read-only scope
-&#x20;   Security-->>Agent: Authorized population
-&#x20;   Agent->>Rules: Evaluate permitted records
-&#x20;   Rules-->>Agent: Minimized exceptions
-&#x20;   Agent->>Report: Publish to authorized recipients
-&#x20;   Agent->>Audit: Record metrics and outcome
+    participant Trigger as Schedule or Event
+    participant Agent
+    participant ASU as Ambient ASU
+    participant Security as Ambient Security Group
+    participant Rules as Data-Quality Rules
+    participant Report
+    participant Audit
+    Trigger->>Agent: Start approved run
+    Agent->>ASU: Establish Ambient identity
+    ASU->>Security: Evaluate read-only scope
+    Security-->>Agent: Authorized population
+    Agent->>Rules: Evaluate permitted records
+    Rules-->>Agent: Minimized exceptions
+    Agent->>Report: Publish to authorized recipients
+    Agent->>Audit: Record metrics and outcome
 ```
 
 ## Trust Boundaries

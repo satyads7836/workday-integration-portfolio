@@ -2,53 +2,53 @@
 
 ```mermaid
 sequenceDiagram
-&#x20;   autonumber
-&#x20;   participant Trigger as Approved Schedule or Event
-&#x20;   participant Agent as Worker Profile Agent
-&#x20;   participant ASU as Illustrative Ambient ASU
-&#x20;   participant Security as Ambient Security Group
-&#x20;   participant Source as Read-Only Worker Source
-&#x20;   participant Rules as Data-Quality Rules
-&#x20;   participant Report as Exception Report
-&#x20;   participant Audit
-&#x20;   Trigger->>Agent: Start approved monitoring run
-&#x20;   Agent->>ASU: Establish Ambient execution identity
-&#x20;   alt Ambient identity disabled
-&#x20;       ASU-->>Agent: Disabled
-&#x20;       Agent->>Audit: Record stopped run
-&#x20;   else Ambient identity enabled
-&#x20;       ASU->>Security: Evaluate approved scope
-&#x20;       alt Scope invalid or excessive
-&#x20;           Security-->>Agent: Denied
-&#x20;           Agent->>Audit: Record security failure
-&#x20;       else Scope approved
-&#x20;           Security-->>Agent: Approved population and fields
-&#x20;           Agent->>Rules: Load approved rule version
-&#x20;           alt Rule version unavailable
-&#x20;               Rules-->>Agent: Missing or invalid
-&#x20;               Agent->>Audit: Record configuration failure
-&#x20;           else Rule version available
-&#x20;               Rules-->>Agent: Ready
-&#x20;               Agent->>Source: Read changed records from previous watermark
-&#x20;               Source-->>Agent: Authorized synthetic records
-&#x20;               alt Record threshold exceeded
-&#x20;                   Agent->>Audit: Stop without advancing watermark
-&#x20;               else Threshold acceptable
-&#x20;                   Agent->>Rules: Evaluate records
-&#x20;                   Rules-->>Agent: Minimized exceptions
-&#x20;                   Agent->>Report: Publish to authorized recipients
-&#x20;                   alt Publication fails
-&#x20;                       Report-->>Agent: Failure
-&#x20;                       Agent->>Audit: Record unsuccessful run
-&#x20;                   else Publication succeeds
-&#x20;                       Report-->>Agent: Published
-&#x20;                       Agent->>Audit: Record metrics and success
-&#x20;                       Agent->>Agent: Advance watermark
-&#x20;                   end
-&#x20;               end
-&#x20;           end
-&#x20;       end
-&#x20;   end
+    autonumber
+    participant Trigger as Approved Schedule or Event
+    participant Agent as Worker Profile Agent
+    participant ASU as Illustrative Ambient ASU
+    participant Security as Ambient Security Group
+    participant Source as Read-Only Worker Source
+    participant Rules as Data-Quality Rules
+    participant Report as Exception Report
+    participant Audit
+    Trigger->>Agent: Start approved monitoring run
+    Agent->>ASU: Establish Ambient execution identity
+    alt Ambient identity disabled
+        ASU-->>Agent: Disabled
+        Agent->>Audit: Record stopped run
+    else Ambient identity enabled
+        ASU->>Security: Evaluate approved scope
+        alt Scope invalid or excessive
+            Security-->>Agent: Denied
+            Agent->>Audit: Record security failure
+        else Scope approved
+            Security-->>Agent: Approved population and fields
+            Agent->>Rules: Load approved rule version
+            alt Rule version unavailable
+                Rules-->>Agent: Missing or invalid
+                Agent->>Audit: Record configuration failure
+            else Rule version available
+                Rules-->>Agent: Ready
+                Agent->>Source: Read changed records from previous watermark
+                Source-->>Agent: Authorized synthetic records
+                alt Record threshold exceeded
+                    Agent->>Audit: Stop without advancing watermark
+                else Threshold acceptable
+                    Agent->>Rules: Evaluate records
+                    Rules-->>Agent: Minimized exceptions
+                    Agent->>Report: Publish to authorized recipients
+                    alt Publication fails
+                        Report-->>Agent: Failure
+                        Agent->>Audit: Record unsuccessful run
+                    else Publication succeeds
+                        Report-->>Agent: Published
+                        Agent->>Audit: Record metrics and success
+                        Agent->>Agent: Advance watermark
+                    end
+                end
+            end
+        end
+    end
 ```
 
 ## Control Points

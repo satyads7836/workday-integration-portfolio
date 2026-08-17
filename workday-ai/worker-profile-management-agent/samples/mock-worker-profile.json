@@ -1,0 +1,19 @@
+{
+  "_notice": "Synthetic portfolio data. This record does not represent a real person or Workday tenant.",
+  "workerId": "SYN-W-1002",
+  "displayName": "Avery Example",
+  "businessTitle": "Integration Consultant",
+  "supervisoryOrganization": {
+    "id": "SYN-ORG-020",
+    "name": "Enterprise Applications"
+  },
+  "workerType": "Employee",
+  "location": {
+    "id": "SYN-LOC-IND-01",
+    "name": "Bengaluru"
+  },
+  "workerStatus": "Active",
+  "effectiveDate": "2026-08-01",
+  "profileLastReviewed": "2026-07-15",
+  "dataClassification": "synthetic-worker-data"
+}

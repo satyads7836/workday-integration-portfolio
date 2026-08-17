@@ -1,0 +1,35 @@
+{
+  "_notice": "Illustrative request using synthetic data. This is not an official Workday API or business-process payload.",
+  "correlationId": "SYN-CORR-UBT-0001",
+  "skillId": "update-worker-business-title",
+  "executionMode": "delegate",
+  "requestContext": {
+    "actorCategory": "authorized-hr-user",
+    "targetWorkerId": "SYN-W-1002",
+    "currentBusinessTitle": "Integration Consultant",
+    "proposedBusinessTitle": "Senior Integration Consultant",
+    "effectiveDate": "2026-09-01",
+    "businessReason": "approved-role-progression"
+  },
+  "validation": {
+    "skillAccess": "allowed",
+    "targetWorkerAccess": "allowed",
+    "currentValueMatches": true,
+    "proposedValueValid": true,
+    "effectiveDateValid": true,
+    "businessReasonProvided": true,
+    "duplicateRequestFound": false
+  },
+  "confirmation": {
+    "required": true,
+    "status": "confirmed",
+    "confirmationReference": "SYN-CONF-UBT-0001"
+  },
+  "submission": {
+    "mode": "controlled-business-process-request",
+    "approvalRequired": true,
+    "requestReference": "SYN-BP-REQ-0001",
+    "status": "awaiting-approval"
+  },
+  "auditRecordId": "SYN-AUD-UBT-0001"
+}

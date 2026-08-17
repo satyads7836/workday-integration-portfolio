@@ -1,0 +1,63 @@
+{
+  "_notice": "Synthetic portfolio audit records. They contain no real user, worker, customer, or tenant information.",
+  "records": [
+    {
+      "auditRecordId": "SYN-AUD-RWP-0001",
+      "correlationId": "SYN-CORR-RWP-0001",
+      "timestamp": "2026-08-17T09:15:22Z",
+      "agentId": "worker-profile-management-agent",
+      "agentDefinitionVersion": "0.1.0",
+      "skillId": "retrieve-worker-profile",
+      "executionMode": "delegate",
+      "actorCategory": "authorized-hr-user",
+      "targetReference": "SYN-W-1002",
+      "authorizationOutcome": "allowed",
+      "action": "read-minimized-worker-profile",
+      "returnedFieldCategories": [
+        "business-title",
+        "supervisory-organization",
+        "worker-type",
+        "location",
+        "worker-status"
+      ],
+      "status": "success",
+      "completeWorkerProfileStored": false
+    },
+    {
+      "auditRecordId": "SYN-AUD-UBT-0001",
+      "correlationId": "SYN-CORR-UBT-0001",
+      "timestamp": "2026-08-17T09:30:05Z",
+      "agentId": "worker-profile-management-agent",
+      "agentDefinitionVersion": "0.1.0",
+      "skillId": "update-worker-business-title",
+      "executionMode": "delegate",
+      "actorCategory": "authorized-hr-user",
+      "targetReference": "SYN-W-1002",
+      "authorizationOutcome": "allowed",
+      "validationOutcome": "passed",
+      "confirmationOutcome": "confirmed",
+      "action": "submit-business-title-change-request",
+      "requestReference": "SYN-BP-REQ-0001",
+      "approvalStatus": "awaiting-approval",
+      "status": "submitted"
+    },
+    {
+      "auditRecordId": "SYN-AUD-DQM-0001",
+      "correlationId": "SYN-CORR-DQM-0001",
+      "timestamp": "2026-08-17T02:00:08Z",
+      "agentId": "worker-profile-management-agent",
+      "agentDefinitionVersion": "0.1.0",
+      "skillId": "monitor-worker-profile-data-quality",
+      "executionMode": "ambient",
+      "actorCategory": "illustrative-ambient-asu",
+      "action": "evaluate-worker-profile-data-quality",
+      "ruleSetVersion": "2026.08.1",
+      "recordsEvaluated": 25,
+      "recordsWithExceptions": 3,
+      "reportRecipientCategory": "authorized-hr-data-quality-reviewers",
+      "watermarkAdvanced": true,
+      "status": "success",
+      "completeWorkerProfilesStored": false
+    }
+  ]
+}

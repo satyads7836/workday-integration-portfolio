@@ -1,0 +1,121 @@
+{
+  "_notice": "Illustrative portfolio model. This is not an official or deployable Workday Agent Definition schema.",
+  "id": "worker-profile-management-agent",
+  "displayName": "Worker Profile Management Agent",
+  "description": "Demonstrates governed worker-profile retrieval, controlled business-title updates, and ambient profile data-quality monitoring.",
+  "version": "0.1.0",
+  "lifecycleStatus": "design",
+  "provider": {
+    "type": "self-built",
+    "name": "Portfolio Demonstration"
+  },
+  "platformContext": {
+    "name": "Workday",
+    "connection": "none",
+    "dataMode": "synthetic-only"
+  },
+  "capabilities": {
+    "stateTransitionHistory": true,
+    "streaming": false,
+    "pushNotifications": true,
+    "auditTrail": true
+  },
+  "skills": [
+    {
+      "id": "retrieve-worker-profile",
+      "displayName": "Retrieve Worker Profile",
+      "executionMode": "delegate",
+      "riskLevel": "medium",
+      "purpose": "Return only the worker information that the requesting user is permitted to view.",
+      "tools": [
+        "internal-authorization-check",
+        "get-worker-profile",
+        "write-audit-record"
+      ],
+      "controls": [
+        "agent-interaction-policy",
+        "user-permission-intersection",
+        "field-level-minimization",
+        "audit-logging"
+      ]
+    },
+    {
+      "id": "update-worker-business-title",
+      "displayName": "Update Worker Business Title",
+      "executionMode": "delegate",
+      "riskLevel": "high",
+      "purpose": "Submit a validated business-title change through a controlled and auditable process.",
+      "tools": [
+        "internal-authorization-check",
+        "validate-business-title",
+        "request-business-title-change",
+        "write-audit-record"
+      ],
+      "controls": [
+        "agent-interaction-policy",
+        "domain-and-business-process-security",
+        "input-validation",
+        "approval-routing",
+        "duplicate-request-prevention",
+        "audit-logging"
+      ]
+    },
+    {
+      "id": "monitor-worker-profile-data-quality",
+      "displayName": "Monitor Worker Profile Data Quality",
+      "executionMode": "ambient",
+      "riskLevel": "medium",
+      "purpose": "Identify incomplete or invalid profile information and produce a read-only exception report.",
+      "tools": [
+        "read-worker-profile-scope",
+        "evaluate-profile-data-quality",
+        "publish-exception-report",
+        "write-audit-record"
+      ],
+      "identity": {
+        "type": "illustrative-ambient-asu",
+        "securityGroup": "illustrative-ambient-agent-security-group"
+      },
+      "controls": [
+        "read-only-worker-access",
+        "least-privilege-scope",
+        "approved-schedule-or-event",
+        "no-automatic-worker-update",
+        "exception-notification",
+        "audit-logging"
+      ]
+    }
+  ],
+  "dataProtection": {
+    "allowedData": [
+      "synthetic-worker-records",
+      "sanitized-configuration-examples"
+    ],
+    "prohibitedData": [
+      "real-worker-data",
+      "tenant-identifiers",
+      "credentials",
+      "tokens",
+      "secrets",
+      "private-keys"
+    ]
+  },
+  "governance": {
+    "ownerRole": "HR Technology Product Owner",
+    "technicalOwnerRole": "Workday Integration Lead",
+    "securityReviewerRole": "Workday Security Administrator",
+    "requiredReviews": [
+      "privacy",
+      "security",
+      "architecture",
+      "business-owner-approval"
+    ],
+    "activationCriteria": [
+      "skill-scope-approved",
+      "tool-security-validated",
+      "test-evidence-approved",
+      "monitoring-enabled",
+      "rollback-plan-approved"
+    ]
+  }
+}
